@@ -8,11 +8,11 @@ let login = false
 
 <template>
 
-    <div class="flex flex-row gap-4 justify-center items-center py-5 font-bold relative">
+    <div class="flex flex-row gap-4 justify-center items-center py-5 relative">
 
-            <router-link to="/">Home</router-link>
+            <router-link to="/" active-class="font-bold">Home</router-link>
 
-            <router-link to="/result">result</router-link>
+            <router-link to="/result"  active-class="font-bold">result</router-link>
 
             <img src="/img/login.png" alt="#" class="absolute right-10 w-8 h-8 -mt-2">
     </div>
