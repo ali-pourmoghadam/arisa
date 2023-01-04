@@ -1,7 +1,7 @@
 import './bootstrap';
 
 import {createApp} from 'vue/dist/vue.esm-bundler.js'
-
+import router from './router';
 import AppComponent from "./components/AppComponent.vue"
 
 createApp({
@@ -10,5 +10,5 @@ createApp({
         AppComponent
     }
     
-}).mount("#app")
+}).use(router).mount("#app")
 
