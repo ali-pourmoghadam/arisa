@@ -1,6 +1,7 @@
 <script setup>
 import ButtonComponent from "./ButtonComponent.vue"
 import TestComponent from "./TestComponent.vue"
+import DiscriptiveComponent from "./DiscriptiveComponent.vue"
 
 </script>
 
@@ -24,7 +25,13 @@ import TestComponent from "./TestComponent.vue"
         <div class="flex flex-col gap-2 mt-7 ml-4">
 
     
-            <test-component class="mt-7"></test-component>
+            <test-component></test-component>
+
+            <discriptive-component ></discriptive-component>
+
+            <button-component class="w-32 h-7 text-sm font-bold mt-5 mx-auto">
+                send
+            </button-component>
             
 
         </div>

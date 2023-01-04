@@ -10,7 +10,7 @@
     <body class="h-full">
 
         <div id="app" class="h-full">
-            <app-component class="h-full"></app-component>
+            <app-component ></app-component>
         </div>
         
     </body>
