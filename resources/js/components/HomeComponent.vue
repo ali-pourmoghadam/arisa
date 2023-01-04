@@ -1,4 +1,5 @@
 <script setup>
+import GuestComponent from "./GuestComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
 import TestComponent from "./TestComponent.vue"
 import DiscriptiveComponent from "./DiscriptiveComponent.vue"
@@ -6,15 +7,8 @@ import DiscriptiveComponent from "./DiscriptiveComponent.vue"
 </script>
 
 <template>
-    <!-- <div class="text-center">
 
-            <h1 class="font-bold">
-                for test you have to register first !
-            </h1>
-            <button-component class="w-32 h-7  text-sm font-bold mt-10">
-                click here
-            </button-component>
-    </div> -->
+    <!-- <guest-component></guest-component> -->
 
     <div class="w-full px-4">
 

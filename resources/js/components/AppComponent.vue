@@ -1,3 +1,11 @@
+<script>
+
+let login = false
+
+
+</script>
+
+
 <template>
 
     <div class="flex flex-row gap-4 justify-center items-center py-5 font-bold relative">
@@ -11,6 +19,8 @@
 
     
     <div class="w-3/6 mx-auto  mt-10">
+
         <router-view></router-view>
+
     </div>
 </template>
