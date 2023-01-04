@@ -1,7 +1,4 @@
-<script>
-
-let login = false
-
+<script setup>
 
 </script>
 
@@ -17,10 +14,12 @@ let login = false
             <img src="/img/login.png" alt="#" class="absolute right-10 w-8 h-8 -mt-2">
     </div>
 
+ 
     
     <div class="w-3/6 mx-auto  mt-10">
 
         <router-view></router-view>
 
     </div>
+
 </template>

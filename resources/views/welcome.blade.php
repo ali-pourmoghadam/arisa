@@ -9,7 +9,7 @@
     </head>
     <body class="h-full">
 
-        <div id="app" class="h-full">
+        <div id="app" class="h-full select-none">
             <app-component ></app-component>
         </div>
         

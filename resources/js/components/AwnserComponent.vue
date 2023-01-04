@@ -1,5 +1,4 @@
 <script setup>
-
 import GuestComponentVue from './GuestComponent.vue';
 
 </script>

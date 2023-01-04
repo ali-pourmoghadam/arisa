@@ -3,12 +3,21 @@ import GuestComponent from "./GuestComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
 import TestComponent from "./TestComponent.vue"
 import DiscriptiveComponent from "./DiscriptiveComponent.vue"
+import AuthComponent from "./AuthComponent.vue"
+
+
+
 
 </script>
 
 <template>
 
+    
+   <auth-component></auth-component>
+
     <!-- <guest-component></guest-component> -->
+
+    
 
     <div class="w-full px-4">
 
