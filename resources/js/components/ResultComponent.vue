@@ -1,5 +1,12 @@
+<script setup>
+import AwnserComponent from "./AwnserComponent.vue"
+
+
+</script>
+
+
 <template>
     <div>
-        result
+        <awnser-component></awnser-component>
     </div>
 </template>
