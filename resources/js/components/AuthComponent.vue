@@ -1,8 +1,11 @@
 <script setup>
 import  {ref}  from "vue"
 import ButtonComponent from "./ButtonComponent.vue"
+import { quizStore } from "../sotres/QuizStore.js"
 
 
+
+let quiz = quizStore()
 let register = ref(true)
 
 </script>
@@ -11,8 +14,9 @@ let register = ref(true)
 
     <div class="w-full h-full bg-gray-400 absolute top-0 left-0">
 
-        <div class="w-2/6 h-96 bg-white rounded-lg mx-auto mt-32 p-4">
-            
+        <div class="w-2/6 h-96 bg-white rounded-lg mx-auto mt-32 p-4 relative">
+
+                <button @click="quiz.authShowDismiss()" class="absolute right-10">&times</button>
             
 
                 <div v-if="register">

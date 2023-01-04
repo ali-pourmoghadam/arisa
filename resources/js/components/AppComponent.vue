@@ -1,4 +1,10 @@
 <script setup>
+import AuthComponent from "./AuthComponent.vue"
+import { quizStore } from "../sotres/QuizStore.js"
+
+
+
+let quiz = quizStore()
 
 </script>
 
@@ -21,5 +27,8 @@
         <router-view></router-view>
 
     </div>
+
+     <auth-component v-if="quiz.authShow"></auth-component>
+
 
 </template>

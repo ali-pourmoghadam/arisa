@@ -1,5 +1,9 @@
 <script setup>
 import ButtonComponent from "./ButtonComponent.vue"
+import { quizStore } from "../sotres/QuizStore.js"
+
+let quiz = quizStore()
+
 
 </script>
 
@@ -10,7 +14,7 @@ import ButtonComponent from "./ButtonComponent.vue"
                 for test you have to register first !
             </h1>
 
-            <button-component class="w-32 h-7  text-sm font-bold mt-10">
+            <button-component class="w-32 h-7  text-sm font-bold mt-10" @click="quiz.authShowPopup()">
                 click here
             </button-component>
     </div>
