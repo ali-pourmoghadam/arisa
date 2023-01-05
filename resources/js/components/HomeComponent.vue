@@ -3,11 +3,11 @@ import QuestionComponent from "./QuestionComponent.vue"
 import GuestComponent from "./GuestComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
 import { quizStore } from "../sotres/QuizStore.js"
+import { onMounted, ref } from "@vue/runtime-core"
 
 
 
 let quiz = quizStore()
-
 
 </script>
 
@@ -15,7 +15,7 @@ let quiz = quizStore()
 
     
   
-    <guest-component v-if="! quiz.login"></guest-component>
+    <guest-component v-if="quiz.token.length == 0"></guest-component>
 
     <question-component v-else></question-component>
 

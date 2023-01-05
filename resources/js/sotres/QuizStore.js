@@ -9,7 +9,8 @@ export let quizStore = defineStore("quiz" , {
         return{
             
             loginPage : false , 
-            authShow : false
+            authShow : false ,
+            token : "" 
 
         }
     },
@@ -25,13 +26,8 @@ export let quizStore = defineStore("quiz" , {
         authShowDismiss(){
 
             this.authShow = false
-        }
+        } 
 
-
-    } , 
-
-    getters : {
-
-    }
+    } 
 
 })

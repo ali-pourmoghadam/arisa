@@ -1,6 +1,12 @@
 <script setup>
-import { reactive } from "@vue/reactivity"
+import { reactive, ref } from "@vue/reactivity"
 import ButtonComponent from "./ButtonComponent.vue"
+import { quizStore } from "../sotres/QuizStore.js"
+import router  from "../router.js"
+import Swal from 'sweetalert2'
+
+let quiz = quizStore()
+
 
 defineProps({
     initStatus : Boolean,
@@ -21,18 +27,36 @@ function regsiter(){
 
         axios.post('http://localhost:8000/api/v1/register', {
 
-        data : form
+        name : form.name ,
+        email : form.email ,
+        password : form.password 
+
 
         })
         .then(function (response) {
 
-            console.log(response);
+            quiz.token = response.data.token
+
+            quiz.authShowDismiss()
+
+            Swal.fire({
+                title: 'Success',
+                text: 'User Created Successfully',
+                icon: 'success',
+                confirmButtonText: 'ok'
+            })
 
         })
         .catch(function (error) {
 
-            console.log(error);
-
+            
+          Swal.fire({
+                title: 'Error!',
+                text: error.response.data.message,
+                icon: 'error',
+                confirmButtonText: 'close'
+            })
+            
         });
 
 }
@@ -59,6 +83,8 @@ function regsiter(){
             </label>
 
             <input type="text" v-model="form.name" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+
+           
         </div>
 
         <div class="w-4/6 mx-auto mt-4">
@@ -67,7 +93,8 @@ function regsiter(){
                 email : 
             </label>
 
-            <input type="text" v-model="form.email" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+            <input type="email" v-model="form.email" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+            
         </div>
 
         <div class="w-4/6 mx-auto mt-4">
@@ -76,10 +103,11 @@ function regsiter(){
                 password : 
             </label>
 
-            <input type="text" v-model="form.password" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+            <input type="password" v-model="form.password" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+           
         </div>
 
-        <div class="w-4/6 mx-auto mt-6">
+        <div class="w-4/6 mx-auto mt-3">
 
             <button-component @click="regsiter()" class="text-sm px-2 block mx-auto font-semibold py-1 w-24">
                 register
