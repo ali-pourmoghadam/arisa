@@ -14,5 +14,4 @@ class QuizService {
         return QuizResource::collection(Quiz::all());
     }
 
-
 }

@@ -2,10 +2,14 @@
 import TestComponent from "./TestComponent.vue"
 import DiscriptiveComponent from "./DiscriptiveComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
-import { onMounted, reactive } from "@vue/runtime-core"
+import { onMounted, reactive, ref } from "@vue/runtime-core"
 import { quizStore } from "../sotres/QuizStore.js"
 
 let quiz = quizStore()
+
+let testQuestion= ref("0")
+let descriptiveQuestion= ref("")
+
 
 onMounted(()=>{
 
@@ -20,8 +24,7 @@ onMounted(()=>{
         
         quiz.data = response.data.data[0]
 
-        console.log( response.data.data[0])
-
+        console.log(response.data.data[0]);
 
     })
     .catch(error => console.log(error))
@@ -29,6 +32,14 @@ onMounted(()=>{
 
 
 })
+
+
+
+
+function send(){
+
+    // send awmsers and store in database
+}
 
 </script>
 
@@ -65,6 +76,7 @@ onMounted(()=>{
           :checks="item.option" 
           :score="item.score"
           v-if="item.type == 'test'"
+          @check="(val)=> testQuestion= val"
 
           >
          </test-component>
@@ -72,10 +84,12 @@ onMounted(()=>{
 
 
          <discriptive-component 
+
          :question="item.questions"
          :score="item.score"
          v-if="item.type == 'descriptive'"
-
+         v-model:textArea="descriptiveQuestion"
+    
          ></discriptive-component> 
             
         </div>
