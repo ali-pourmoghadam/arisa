@@ -1,4 +1,5 @@
 <script setup>
+import { reactive } from "@vue/reactivity"
 import ButtonComponent from "./ButtonComponent.vue"
 
 defineProps({
@@ -7,17 +8,34 @@ defineProps({
 })
 
 
-let form = {
+let form = reactive({
 
-    name : "" ,
-    email : "" , 
-    password : ""
+        name : "" ,
+        email : "" , 
+        password : ""
+
+})
+
+
+function regsiter(){
+
+        axios.post('http://localhost:8000/api/v1/register', {
+
+        data : form
+
+        })
+        .then(function (response) {
+
+            console.log(response);
+
+        })
+        .catch(function (error) {
+
+            console.log(error);
+
+        });
 
 }
-
-
-
-
 
 
 
@@ -40,7 +58,7 @@ let form = {
                 Name : 
             </label>
 
-            <input type="text" v-model="name" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+            <input type="text" v-model="form.name" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
         </div>
 
         <div class="w-4/6 mx-auto mt-4">
@@ -49,7 +67,7 @@ let form = {
                 email : 
             </label>
 
-            <input type="text" v-model="email" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+            <input type="text" v-model="form.email" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
         </div>
 
         <div class="w-4/6 mx-auto mt-4">
@@ -58,12 +76,12 @@ let form = {
                 password : 
             </label>
 
-            <input type="text" v-model="password" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+            <input type="text" v-model="form.password" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
         </div>
 
         <div class="w-4/6 mx-auto mt-6">
 
-            <button-component class="text-sm px-2 block mx-auto font-semibold py-1 w-24">
+            <button-component @click="regsiter()" class="text-sm px-2 block mx-auto font-semibold py-1 w-24">
                 register
             </button-component>
 
