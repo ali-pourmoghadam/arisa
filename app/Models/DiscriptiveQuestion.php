@@ -9,9 +9,11 @@ class DiscriptiveQuestion extends Model
 {
     use HasFactory;
 
+    protected $gaurded = [];
+
     public function QuizQuestion()
     {
         return $this->morphMany(QuizQuestion::class , "questionable");
     }
-    
+
 }

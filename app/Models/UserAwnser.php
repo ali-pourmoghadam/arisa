@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TestContent extends Model
+class UserAwnser extends Model
 {
     use HasFactory;
-    
-    protected $guarded = [];
 
-    public function TestQuestion()
+
+    public function QuizUser()
     {
-        return $this->hasOne(TestQuestion::class);
+        return $this->belongsTo(QuizUser::class);
     }
 }

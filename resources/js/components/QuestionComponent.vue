@@ -2,12 +2,52 @@
 import TestComponent from "./TestComponent.vue"
 import DiscriptiveComponent from "./DiscriptiveComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
+import { onMounted, reactive } from "@vue/runtime-core"
+import { quizStore } from "../sotres/QuizStore.js"
+
+let quiz = quizStore()
+
+onMounted(()=>{
+
+    axios.get("http://localhost:8000/api/v1/fetchQuiz",{
+
+        headers : {
+
+            Authorization : `Bearer ${quiz.token}`
+        }
+    })
+    .then(response => {
+        
+        quiz.data = response.data[0]
+
+    
+
+    })
+    .catch(error => console.log(error))
+
+
+
+})
 
 </script>
 
 <template>
 
     <div class="w-full px-4">
+
+     <h1 class="text-lg font-semibold">
+        Quiz Data :
+     </h1>    
+
+     <div class="flex flex-row gap-8 justify-center items-center">
+        <div>
+            <span class="font-bold">Name</span> : {{ quiz.data.name }}
+        </div>
+
+        <div>
+           <span class="font-bold">score</span> : {{ quiz.data.score }}
+        </div>
+     </div>
 
     <h1 class="text-lg font-semibold">
         Questions :

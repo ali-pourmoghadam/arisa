@@ -9,6 +9,8 @@ class TestQuestion extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     public function TestContent()
     {
         return $this->hasOne(TestContent::class);
@@ -16,6 +18,6 @@ class TestQuestion extends Model
 
     public function QuizQuestion()
     {
-        return $this->morphMany(QuizQuestion::class , "questionable");
+        return $this->morphMany(QuizQuestion::class , "questionable" , );
     }
 }

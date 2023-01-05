@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TestContent extends Model
+class QuizUser extends Model
 {
     use HasFactory;
-    
-    protected $guarded = [];
 
-    public function TestQuestion()
+    protected $table = "quiz_user";
+
+
+    public function UserAwnser()
     {
-        return $this->hasOne(TestQuestion::class);
+        return $this->hasMany(UserAwnser::class);
     }
 }

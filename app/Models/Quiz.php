@@ -9,12 +9,14 @@ class Quiz extends Model
 {
     use HasFactory;
 
+    protected $gaurded = [];
+
     public function User()
     {
         return $this->belongsToMany(User::class);
     }
 
-    
+
     public function QuizQuestion()
     {
         return $this->hasMany(QuizQuestion::class);

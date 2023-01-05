@@ -9,7 +9,9 @@ class QuizQuestion extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
 
+    
     public function Quiz()
     {
         return $this->belongsTo(Quiz::class);

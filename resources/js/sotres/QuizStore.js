@@ -10,7 +10,8 @@ export let quizStore = defineStore("quiz" , {
             
             loginPage : false , 
             authShow : false ,
-            token : "" 
+            token : "" ,
+            data : {}
 
         }
     },
