@@ -1,8 +1,55 @@
 <script setup>
 import { quizStore } from "../sotres/QuizStore.js"
 import ButtonComponent from "./ButtonComponent.vue"
+import Swal from 'sweetalert2'
 
 let quiz = quizStore()
+
+let form = {
+
+    email : "" ,
+    password : "" 
+
+}
+
+
+function login(){
+
+    axios.post('http://localhost:8000/api/v1/login', {
+
+
+    email : form.email ,
+    password : form.password 
+
+
+    })
+    .then(function (response) {
+
+        quiz.token = response.data.token
+
+        quiz.authShowDismiss()
+
+        Swal.fire({
+            title: 'Success',
+            text: 'you Enterd Successfull',
+            icon: 'success',
+            confirmButtonText: 'ok'
+        })
+
+    })
+    .catch(function (error) {
+
+        
+    Swal.fire({
+            title: 'Error!',
+            text: error.response.data.message,
+            icon: 'error',
+            confirmButtonText: 'close'
+        })
+        
+    });
+
+}
 
 </script>
 
@@ -23,7 +70,7 @@ let quiz = quizStore()
         Email : 
     </label>
 
-    <input type="text" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+    <input type="text" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto" v-model="form.email">
     </div>
 
     <div class="w-4/6 mx-auto mt-4">
@@ -32,12 +79,12 @@ let quiz = quizStore()
         Password : 
     </label>
 
-    <input type="text" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto">
+    <input type="password" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto" v-model="form.password">
     </div>
 
     <div class="w-4/6 mx-auto mt-6">
 
-    <button-component class="text-sm px-2 block mx-auto font-semibold py-1 w-24">
+    <button-component @click="login()" class="text-sm px-2 block mx-auto font-semibold py-1 w-24">
         login
     </button-component>
 
