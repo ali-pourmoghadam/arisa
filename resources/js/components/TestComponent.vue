@@ -2,15 +2,17 @@
 
 defineProps({
     question : String ,
-    checks : Object
+    checks : Object,
+    score : Number
 })
 </script>
 
 
 <template>
     
-    <p class="font-semibold">  
-                <span>1</span>-{{question}}
+    <p class="font-semibold relative">  
+                <span>-</span>{{question}}
+                <span class="absolute text-gray-600 right-10 text-xs mt-1">score : {{score}}</span>
     </p>
 
 

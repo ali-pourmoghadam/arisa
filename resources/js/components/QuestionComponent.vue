@@ -58,11 +58,12 @@ onMounted(()=>{
 
         <div v-for="item in quiz.data.questions">
    
-      
+        
          <test-component
 
           :question="item.questions"
           :checks="item.option" 
+          :score="item.score"
           v-if="item.type == 'test'"
 
           >
@@ -72,6 +73,7 @@ onMounted(()=>{
 
          <discriptive-component 
          :question="item.questions"
+         :score="item.score"
          v-if="item.type == 'descriptive'"
 
          ></discriptive-component> 

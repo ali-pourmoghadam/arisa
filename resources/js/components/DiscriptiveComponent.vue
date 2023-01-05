@@ -1,14 +1,16 @@
 <script setup>
 
 defineProps({
-    question : String 
+    question : String ,
+    score : Number
 })
 </script>
 
 <template>
 
-    <p class="font-semibold mt-5">  
-                <span>1</span>-{{question}}
+    <p class="font-semibold mt-5 relative">  
+                <span>-</span>{{question}}
+                <span class="absolute text-gray-600 right-10 text-xs mt-1">score : {{score}}</span>
     </p>
 
     <textarea name="" rows="4"  placeholder="Write your thoughts here..." 
