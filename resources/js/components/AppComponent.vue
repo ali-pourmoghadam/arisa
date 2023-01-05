@@ -1,4 +1,10 @@
 <script setup>
+import AuthComponent from "./AuthComponent.vue"
+import { quizStore } from "../sotres/QuizStore.js"
+
+
+
+let quiz = quizStore()
 
 </script>
 
@@ -11,7 +17,16 @@
 
             <router-link to="/result"  active-class="font-bold">result</router-link>
 
-            <img src="/img/login.png" alt="#" class="absolute right-10 w-8 h-8 -mt-2">
+
+            <img 
+            
+            v-if="quiz.token.length > 0" 
+            
+            src="/img/login.png" alt="#" 
+            
+            @click="quiz.token = '' "
+
+            class="absolute right-10 w-8 h-8 -mt-2 cursor-pointer">
     </div>
 
  
@@ -21,5 +36,8 @@
         <router-view></router-view>
 
     </div>
+
+     <auth-component v-if="quiz.authShow"></auth-component>
+
 
 </template>
