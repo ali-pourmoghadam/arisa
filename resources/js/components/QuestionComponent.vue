@@ -18,9 +18,10 @@ onMounted(()=>{
     })
     .then(response => {
         
-        quiz.data = response.data[0]
+        quiz.data = response.data.data[0]
 
-    
+        console.log( response.data.data[0])
+
 
     })
     .catch(error => console.log(error))
@@ -55,10 +56,29 @@ onMounted(()=>{
 
     <div class="flex flex-col gap-2 mt-7 ml-4">
 
+        <div v-for="item in quiz.data.questions">
+   
+      
+         <test-component
 
-        <test-component></test-component>
+          :question="item.questions"
+          :checks="item.option" 
+          v-if="item.type == 'test'"
 
-        <discriptive-component ></discriptive-component>
+          >
+         </test-component>
+
+
+
+         <discriptive-component 
+         :question="item.questions"
+         v-if="item.type == 'descriptive'"
+
+         ></discriptive-component> 
+            
+        </div>
+
+     
 
         <button-component class="w-32 h-7 text-sm font-bold mt-5 mx-auto">
             send

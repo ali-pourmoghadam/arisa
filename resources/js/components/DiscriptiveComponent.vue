@@ -1,7 +1,14 @@
+<script setup>
+
+defineProps({
+    question : String 
+})
+</script>
+
 <template>
 
     <p class="font-semibold mt-5">  
-                <span>1</span>-tell me about your self ?
+                <span>1</span>-{{question}}
     </p>
 
     <textarea name="" rows="4"  placeholder="Write your thoughts here..." 

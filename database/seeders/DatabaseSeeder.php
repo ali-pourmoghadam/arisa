@@ -30,23 +30,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        $testContent = TestContent::create([
-            "first_option" => "they can do it" ,
-            "secend_option" => "no its not possible" ,
-            "third_option" => "maybe" ,
-            "forth_option" => "i think writer is crazy !" 
-        ]);
-
 
         $testQuestion = TestQuestion::create([
-
-            "content_id" => $testContent->id ,
+            
             "question" => "can dolphins fly upon sky ?" , 
             "score" => 5 ,
             "awnser" => 4
 
         ]);
 
+
+        $testContent = TestContent::create([
+            "test_questions_id" =>  $testQuestion->id,
+            "first_option" => "they can do it" ,
+            "secend_option" => "no its not possible" ,
+            "third_option" => "maybe" ,
+            "forth_option" => "i think writer is crazy !" 
+        ]);
         
         
         $discriptiveQuestion = DiscriptiveQuestion::create([

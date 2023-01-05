@@ -13,6 +13,6 @@ class TestContent extends Model
 
     public function TestQuestion()
     {
-        return $this->hasOne(TestQuestion::class);
+        return $this->belongsTo(TestQuestion::class);
     }
 }

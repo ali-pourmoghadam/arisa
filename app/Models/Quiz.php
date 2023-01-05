@@ -11,6 +11,8 @@ class Quiz extends Model
 
     protected $gaurded = [];
 
+    protected $with = ["QuizQuestion"];
+
     public function User()
     {
         return $this->belongsToMany(User::class);

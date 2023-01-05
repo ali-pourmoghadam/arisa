@@ -10,10 +10,12 @@ class TestQuestion extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $with = ["TestContent"];
     
     public function TestContent()
     {
-        return $this->hasOne(TestContent::class);
+        return $this->hasOne(TestContent::class , "test_questions_id");
     }
 
     public function QuizQuestion()

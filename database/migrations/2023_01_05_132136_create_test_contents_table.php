@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('test_contents', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("test_questions_id");
             $table->string("first_option");
             $table->string("secend_option");
             $table->string("third_option");
