@@ -8,7 +8,7 @@ export let quizStore = defineStore("quiz" , {
 
         return{
             
-            login : false , 
+            loginPage : false , 
             authShow : false
 
         }
