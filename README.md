@@ -17,3 +17,8 @@
 8.php artisan serve
 
 9.npm run dev
+
+
+# Database erd :
+
+![Screenshot (327)](https://user-images.githubusercontent.com/110903442/211031798-9480878e-ce4e-493a-8893-17bf75140331.png)
