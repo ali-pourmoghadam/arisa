@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class UserAwnser extends Model
 {
     use HasFactory;
-
+        
+    protected $guarded = [];
 
     public function QuizUser()
     {

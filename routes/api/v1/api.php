@@ -23,6 +23,8 @@ Route::group(["middleware" => 'auth:sanctum'] , function(){
     Route::group(["controller" => QuizController::class],function(){
 
         Route::get("fetchQuiz" , "fetchQuiz");
+
+        Route::post("putAwnser" , "putAwnser");
         
     });
     

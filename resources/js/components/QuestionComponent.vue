@@ -2,6 +2,7 @@
 import TestComponent from "./TestComponent.vue"
 import DiscriptiveComponent from "./DiscriptiveComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
+import Swal from 'sweetalert2'
 import { onMounted, reactive, ref } from "@vue/runtime-core"
 import { quizStore } from "../sotres/QuizStore.js"
 
@@ -9,6 +10,8 @@ let quiz = quizStore()
 
 let testQuestion= ref("0")
 let descriptiveQuestion= ref("")
+
+
 
 
 onMounted(()=>{
@@ -36,9 +39,58 @@ onMounted(()=>{
 
 
 
-function send(){
+function sendAwnsers(){
 
-    // send awmsers and store in database
+    axios.post("http://localhost:8000/api/v1/putAwnser",{
+        
+    quiz_id : quiz.data.id ,
+
+    test_info : {
+
+        awnser : testQuestion.value ,
+
+        id : quiz.data.questions[0].id
+
+    }, 
+
+    descreptive  :{
+
+        awnser : descriptiveQuestion .value ,
+
+        id :  quiz.data.questions[1].id
+
+    }
+    } ,{
+
+     headers : {
+
+      Authorization : `Bearer ${quiz.token}`
+
+     }
+    })
+    .then(response => {
+
+        Swal.fire({
+            title: 'Success',
+            text: response.data.data,
+            icon: 'success',
+            confirmButtonText: 'ok'
+        })
+
+
+    })
+    .catch(error =>
+    
+
+        Swal.fire({
+                title: 'Error',
+                text: error.response.data.data,
+                icon: 'error',
+                confirmButtonText: 'close'
+            })
+    
+    )
+
 }
 
 </script>
@@ -96,7 +148,7 @@ function send(){
 
      
 
-        <button-component class="w-32 h-7 text-sm font-bold mt-5 mx-auto">
+        <button-component @click="sendAwnsers()" class="w-32 h-7 text-sm font-bold mt-5 mx-auto">
             send
         </button-component>
         
