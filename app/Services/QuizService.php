@@ -33,7 +33,8 @@ class QuizService {
     public function quizSubmit($request)
     {
 
-       $takenQuizId = $this->quizFetch()->pivot->id;
+
+       $takenQuizId = $this->quizFetch();
 
         UserAwnser::create([
 
@@ -49,7 +50,9 @@ class QuizService {
     public function quizAwnsers()
     {
         
-        $takenQuizId = $this->quizFetch()->pivot->id;
+        if($this->quizFetch() == false) return [ "data" => ""];
+
+        $takenQuizId = $this->quizFetch();
 
         $awnsers = UserAwnser::where("quiz_id" ,   $takenQuizId )->get();
 
@@ -64,9 +67,9 @@ class QuizService {
         
         $user = Auth::user();
 
-        return $user->Quiz[0];
+        return $user->Quiz[0]->pivot->id ?? false;
     }
 
-
+  
 
 }
