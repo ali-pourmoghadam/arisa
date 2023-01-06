@@ -11,7 +11,8 @@ export let quizStore = defineStore("quiz" , {
             loginPage : false , 
             authShow : false ,
             token : "" ,
-            data : {}
+            data : {} ,
+            awnsers : {}
 
         }
     },

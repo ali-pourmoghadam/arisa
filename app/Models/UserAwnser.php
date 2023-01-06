@@ -11,8 +11,10 @@ class UserAwnser extends Model
         
     protected $guarded = [];
 
+    protected $with = ["QuizUser"];
+
     public function QuizUser()
     {
-        return $this->belongsTo(QuizUser::class);
+        return $this->belongsTo(QuizUser::class , "quiz_id");
     }
 }

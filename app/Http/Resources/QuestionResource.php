@@ -22,7 +22,7 @@ class QuestionResource extends JsonResource
       
         
         return [
-            "id" => $question->id ,
+            "id" => $this->id ,
             "questions" =>  $question->question,
             "score" =>  $question->score ,
             "option" => $option ,

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Http\Resources\AwnserResource;
 use App\Http\Resources\QuizResource;
 use App\Models\Quiz;
 use App\Models\User;
@@ -11,10 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class QuizService {
 
+
     public function readAll()
     {
         return QuizResource::collection(Quiz::all());
     }
+
 
     public function quizCheck(User $user ,Quiz $quiz)
     {
@@ -27,10 +30,10 @@ class QuizService {
     }
 
 
-    public function quizSubmit(User $user ,$request)
+    public function quizSubmit($request)
     {
 
-       $takenQuizId = $user->Quiz[0]->pivot->id;
+       $takenQuizId = $this->quizFetch()->pivot->id;
 
         UserAwnser::create([
 
@@ -42,5 +45,28 @@ class QuizService {
 
         ]);
     }
+
+    public function quizAwnsers()
+    {
+        
+        $takenQuizId = $this->quizFetch()->pivot->id;
+
+        $awnsers = UserAwnser::where("quiz_id" ,   $takenQuizId )->get();
+
+        return AwnserResource::collection($awnsers);
+
+    }
+
+
+
+    public function quizFetch()
+    {
+        
+        $user = Auth::user();
+
+        return $user->Quiz[0];
+    }
+
+
 
 }

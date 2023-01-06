@@ -15,7 +15,7 @@ let quiz = quizStore()
 
             <router-link to="/" active-class="font-bold">Home</router-link>
 
-            <router-link to="/result"  active-class="font-bold">result</router-link>
+            <router-link to="/result"  active-class="font-bold">submited</router-link>
 
 
             <img 

@@ -25,6 +25,8 @@ Route::group(["middleware" => 'auth:sanctum'] , function(){
         Route::get("fetchQuiz" , "fetchQuiz");
 
         Route::post("putAwnser" , "putAwnser");
+
+        Route::get("fetchAwnser" , "fetchAwnser");
         
     });
     

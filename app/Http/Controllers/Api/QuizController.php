@@ -26,6 +26,7 @@ class QuizController extends Controller
     }
 
 
+
     public function putAwnser(AwnserRequest $request)
     {
         $user = Auth::user();
@@ -38,11 +39,19 @@ class QuizController extends Controller
 
         $user->Quiz()->attach($quiz);
 
-        $this->service->quizSubmit($user , $request["test_info"]);
+        $this->service->quizSubmit($request["test_info"]);
 
-        $this->service->quizSubmit($user , $request["descreptive"]);
+        $this->service->quizSubmit($request["descreptive"]);
 
         return response()->json(["data" => "your exam submitted successfully"]);
+    }
+
+
+
+    public function fetchAwnser()
+    {
+       
+        return $this->service->quizAwnsers();
     }
 
 
