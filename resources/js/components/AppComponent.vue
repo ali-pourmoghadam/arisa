@@ -6,6 +6,13 @@ import { quizStore } from "../sotres/QuizStore.js"
 
 let quiz = quizStore()
 
+function logout(){
+
+    quiz.token = ''
+    quiz.data = {}
+    quiz.awnsers = {}
+}
+
 </script>
 
 
@@ -15,7 +22,7 @@ let quiz = quizStore()
 
             <router-link to="/" active-class="font-bold">Home</router-link>
 
-            <router-link to="/result"  active-class="font-bold">result</router-link>
+            <router-link to="/result"  active-class="font-bold">submited</router-link>
 
 
             <img 
@@ -24,7 +31,7 @@ let quiz = quizStore()
             
             src="/img/login.png" alt="#" 
             
-            @click="quiz.token = '' "
+            @click="logout() "
 
             class="absolute right-10 w-8 h-8 -mt-2 cursor-pointer">
     </div>

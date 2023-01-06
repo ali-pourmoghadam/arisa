@@ -70,7 +70,7 @@ function login(){
         Email : 
     </label>
 
-    <input type="text" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto" v-model="form.email">
+    <input type="text" class="px-2 border border-gray-300 w-4/5 mt-2 rounded block mx-auto" v-model="form.email">
     </div>
 
     <div class="w-4/6 mx-auto mt-4">
@@ -79,7 +79,7 @@ function login(){
         Password : 
     </label>
 
-    <input type="password" class="border border-gray-300 w-4/5 mt-2 rounded block mx-auto" v-model="form.password">
+    <input type="password" class="px-2 border border-gray-300 w-4/5 mt-2 rounded block mx-auto" v-model="form.password">
     </div>
 
     <div class="w-4/6 mx-auto mt-6">

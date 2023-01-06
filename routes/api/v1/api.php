@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\QuizController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(["middleware" => 'auth:sanctum'] , function(){
+
+    Route::group(["controller" => QuizController::class],function(){
+
+        Route::get("fetchQuiz" , "fetchQuiz");
+
+        Route::post("putAwnser" , "putAwnser");
+
+        Route::get("fetchAwnser" , "fetchAwnser");
+        
+    });
+    
 
 
 });

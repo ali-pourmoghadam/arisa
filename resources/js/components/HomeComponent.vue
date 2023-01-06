@@ -3,7 +3,7 @@ import QuestionComponent from "./QuestionComponent.vue"
 import GuestComponent from "./GuestComponent.vue"
 import ButtonComponent from "./ButtonComponent.vue"
 import { quizStore } from "../sotres/QuizStore.js"
-import { onMounted, ref } from "@vue/runtime-core"
+
 
 
 

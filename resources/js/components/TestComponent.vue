@@ -1,38 +1,54 @@
+<script setup>
+import { ref } from "@vue/reactivity"
+
+
+defineProps({
+    question : String ,
+    checks : Object,
+    score : Number
+})
+</script>
+
+
 <template>
     
-    <p class="font-semibold">  
-                <span>1</span>-can dolphin fly upon sky ?
+    <p class="font-semibold relative">  
+                <span>-</span>{{question}}
+                <span class="absolute text-gray-600 right-10 text-xs mt-1">score : {{score}}</span>
     </p>
+
 
     <div class="flex flex-row justify-center  items-center gap-10 mt-5">
 
         <div>
-            <input type="checkbox">
+            <input name="test" type="radio" @click="$emit('check' , 1)">
             <span class="mx-2">
-                they can do it
+               {{checks.first_option}}
             </span>
         </div>
 
         <div>
-            <input type="checkbox">
+            <input name="test" type="radio"  @click="$emit('check' , 2)">
             <span class="mx-2">
-                they can do it
+                {{checks.secend_option}}
             </span>
         </div>
 
         <div>
-            <input type="checkbox">
+            <input name="test" type="radio"  @click="$emit('check' , 3)">
             <span class="mx-2">
-                they can do it
+                {{checks.third_option}}
             </span>
         </div>
 
         <div>
-            <input type="checkbox">
+            <input name="test" type="radio"   @click="$emit('check' , 4)">
             <span class="mx-2">
-                they can do it
+                {{checks.forth_option}}
             </span>
         </div>
+
+     
 
     </div>
 </template>
