@@ -9,7 +9,7 @@
     </head>
     <body class="h-full">
 
-        <div id="app" class="h-full select-none">
+        <div id="app" class="h-full select-none py-6">
             <app-component ></app-component>
         </div>
         

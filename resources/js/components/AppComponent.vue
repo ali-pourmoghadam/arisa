@@ -18,7 +18,7 @@ function logout(){
 
 <template>
 
-    <div class="flex flex-row gap-4 justify-center items-center py-5 relative">
+    <div class="flex flex-row gap-4 justify-center items-center py-2 relative">
 
             <router-link to="/" active-class="font-bold">Home</router-link>
 
