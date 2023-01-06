@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\QuizController;
+use App\Http\Controllers\Api\WeatherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,12 @@ Route::group(["middleware" => 'auth:sanctum'] , function(){
         Route::post("putAwnser" , "putAwnser");
 
         Route::get("fetchAwnser" , "fetchAwnser");
+        
+    });
+
+    Route::group(["controller" => WeatherController::class],function(){
+
+        Route::get("getWeather" , "getWeather");
         
     });
     
